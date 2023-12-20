@@ -167,7 +167,15 @@ const Customizer = () => {
                                 handleClick={() => handleActiveFilterTab(tab.name)}
                             />
                         ))}
+                        <button className='download-btn' onClick={downloadCanvasToImage}>
+                            <img
+                                className='w-3/5 h-3/5 object-contain'
+                                alt='download_image'
+                                src={download}
+                            />
+                        </button>
                     </motion.div>
+
                 </>
             )}
         </AnimatePresence>
