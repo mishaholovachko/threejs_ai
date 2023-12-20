@@ -1,10 +1,9 @@
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { easing } from 'maath';
 import { useSnapshot } from 'valtio';
 
 import state from '../store';
-
 
 const CameraRig = ({ children }) => {
     const group = useRef();
@@ -17,7 +16,7 @@ const CameraRig = ({ children }) => {
         // set the initial position of the model
         let targetPosition = [-0.4, 0, 2];
         if (snap.intro) {
-            if (isBreakpoint) targetPosition = [0, 0, 2];
+            if (isBreakpoint) targetPosition = [-0.3, 0, 3];
             if (isMobile) targetPosition = [0, 0.2, 2.5];
         } else {
             if (isMobile) targetPosition = [0, 0, 2.5]

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useSnapshot } from 'valtio';
 
@@ -55,7 +55,7 @@ const Customizer = () => {
         try {
             setGeneratingImg(true);
 
-            const response = await fetch('http://localhost:8080/api/v1/dalle', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/dalle`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -66,7 +66,6 @@ const Customizer = () => {
             })
 
             const data = await response.json();
-            console.log('data:', data)
 
             handleDecals(type, `data:image/png;base64,${data.photo}`)
         } catch (error) {
